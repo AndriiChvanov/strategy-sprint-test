@@ -594,7 +594,20 @@
                 </span>
               </a>
           </div>
-          
+          <div class="header-nav-folder-item">
+              <a href="https://strategy-sprint-test.vercel.app/rianne-roggema_facilitatorhtml">
+                <span class="header-nav-folder-item-content">
+                  Rianne Roggema
+                </span>
+              </a>
+          </div>
+          <div class="header-nav-folder-item">
+              <a href="https://strategy-sprint-test.vercel.app/pieter-bosschaart_facilitator.html">
+                <span class="header-nav-folder-item-content">
+                  Pieter Bosschaart
+                </span>
+              </a>
+          </div>
         
       </div>
     </div>
@@ -890,7 +903,20 @@
                 </span>
               </a>
           </div>
-          
+          <div class="header-nav-folder-item">
+              <a href="https://strategy-sprint-test.vercel.app/rianne-roggema_facilitatorhtml">
+                <span class="header-nav-folder-item-content">
+                  Rianne Roggema
+                </span>
+              </a>
+          </div>
+          <div class="header-nav-folder-item">
+              <a href="https://strategy-sprint-test.vercel.app/pieter-bosschaart_facilitator.html">
+                <span class="header-nav-folder-item-content">
+                  Pieter Bosschaart
+                </span>
+              </a>
+          </div>
           
         
       </div>
@@ -4295,7 +4321,7 @@ window._load_script = function(url, callback, isSubmit) {
     <div id="bookme-widget"
          style="position: fixed!important; bottom: 0; right: 0; width: 431px; height: 90%; z-index: 999999!important; pointer-events: auto!important;">
         <iframe
-                src="https://widget.bookme.store/team/9a5a8b9c-f175-4657-9a6d-727d1ea2e8f5/services?organization_id=552ded6c-653d-47ee-9512-4e8b8d2ff928&instructorId=9a5a8b9c-f175-4657-9a6d-727d1ea2e8f5&open=true"
+                src="https://dev-widget.bookme.store/team/7902340b-6b20-455d-8fc2-ad357a71d207/services?organization_id=e1d24a69-2390-4993-9912-c72b5c6a51db&instructorId=7902340b-6b20-455d-8fc2-ad357a71d207&open=true"
                 width="100%" height="100%"
                 style="display: block; overflow: hidden; border: 0;"
                 title="Bookme widget"></iframe>
@@ -4303,30 +4329,28 @@ window._load_script = function(url, callback, isSubmit) {
     <script>
         function updateWidgetStyles() {
             const widget = document.getElementById('bookme-widget');
-            widget.style.position = 'fixed';
+            if (!widget) return;
             widget.style.bottom = '0';
             widget.style.right = '0';
-            widget.style.zIndex = '999999';
             widget.style.height = '90%';
             if (window.innerWidth <= 501) {
                 widget.style.width = '100%';
             } else {
                 widget.style.width = '431px';
-                widget.style.height = '90%';
             }
         }
 
         function messageIframe(event) {
-            const data = event.data;
-            if (data.action === 'update_widget') {
+            if (event.data.action === 'update_widget') {
                 const widget = document.getElementById('bookme-widget');
-                if (data.button === 'open') {
-                    widget.style.height = '90%';
-                    widget.style.width = '431px';
-                    updateWidgetStyles();
-                } else {
-                    widget.style.height = '86px';
-                    widget.style.width = '234px';
+                if (widget) {
+                    if (event.data.button === "open") {
+                        widget.style.height = '90%';
+                        widget.style.width = '431px';
+                    } else {
+                        widget.style.height = '86px';
+                        widget.style.width = '234px';
+                    }
                 }
             }
         }
